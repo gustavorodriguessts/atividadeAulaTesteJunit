@@ -47,4 +47,42 @@ class CalculatorTests {
         assertEquals(result, calculator.subtracao(n1, n2),
                 () -> n1 + " - " + n2 + " é igual " + result);
     }
+
+    @Test
+    @DisplayName("2 * 1 = 2")
+    void testeMultiplicacao() {
+        Calculator calculator = new Calculator();
+        assertEquals(2, calculator.multiplicacao(2,1));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "0, 1 , 0",
+            "1, 2, 2",
+            "100, 100, 10000"
+    })
+    void multiplicacao(int n1, int n2, int result) {
+        Calculator calculator = new Calculator();
+        assertEquals(result, calculator.multiplicacao(n1, n2),
+                () -> n1 + " * " + n2 + " é igual " + result);
+    }
+
+    @Test
+    @DisplayName("4 / 2 = 2")
+    void testeDivisao() {
+        Calculator calculator = new Calculator();
+        assertEquals(2, calculator.divisao(4, 2));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "2, 1, 2",
+            "20, 5, 4",
+            "100, 100, 1"
+    })
+    void divisao(int n1, int n2, int result) {
+        Calculator calculator = new Calculator();
+        assertEquals(result, calculator.divisao(n1, n2),
+            () -> n1 + " / " + n2 + " é igual " + result);
+    }
 }
